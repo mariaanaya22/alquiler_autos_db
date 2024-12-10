@@ -1,31 +1,23 @@
-require('dotenv').config();
-
 module.exports = {
-  development: {
-    use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false, // Permite conexiones SSL sin verificación estricta de certificado
-      },
+    development: {
+        username: 'root',
+        password: 'samuel22',
+        database: 'Autos',
+        host: '127.0.0.1',
+        dialect: 'mysql', // O el motor que estés usando: 'postgres', 'sqlite', etc.
     },
-  },
-  test: {
-    username: 'root',
-    password: null,
-    database: 'database_test',
-    host: '127.0.0.1',
-    dialect: 'mysql',
-  },
-  production: {
-    use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
+    test: {
+        username: 'usuario',
+        password: 'contraseña',
+        database: 'nombre_base_datos_test',
+        host: '127.0.0.1',
+        dialect: 'mysql',
     },
-  }
+    production: {
+        username: 'usuario',
+        password: 'contraseña',
+        database: 'nombre_base_datos_production',
+        host: '127.0.0.1',
+        dialect: 'mysql',
+    },
 };

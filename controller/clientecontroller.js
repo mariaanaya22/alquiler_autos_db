@@ -2,7 +2,25 @@ const bcrypt = require('bcrypt');
 const { Cliente } = require('../models');
 
  //login
+ exports.loginCliente = async (req, res) => {
+  const { correo, contraseña } = req.body; // Obtener correo y contraseña
+  try {
+      const usuario = await cliente.findOne({ where: { correo } }); // Buscar por correo
+      if (!usuario) {
+          return res.status(404).json({ mensaje: 'Correo no encontrado' });
+      }
 
+      const esValida = await bcrypt.compare(contraseña, usuario.contraseña); // Comparar contraseña
+      if (!esValida) {
+          return res.status(401).json({ mensaje: 'Contraseña incorrecta' });
+      }
+
+      res.json({ mensaje: 'Inicio de sesión exitoso', usuario });
+  } catch (error) {
+      console.log(error);
+      res.status(500).json({ mensaje: 'Error al iniciar sesión' });
+  }
+};
   ////////////////////////////
 exports.registrarCliente = async (req, res) => {
   try {
