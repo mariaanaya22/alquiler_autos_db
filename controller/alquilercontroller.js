@@ -25,7 +25,7 @@ exports.realizarAlquiler = async (req, res) => {
         }
     } catch (e) {
         console.error(e); // Para ver el error en la consola
-        res.json({ mensaje: "Error al registrar el alquiler", error: e.message });
+        res.json({ mensajee: "Error al registrar el alquiler", error: e.message });
     }
 };
 
