@@ -6,6 +6,9 @@ const alquilerR = require('./routes/alquilerroutes');
 const autosR = require('./routes/autosroutes');
 const clientesR = require('./routes/clienteroutes');
 
+
+// Ahora puedes acceder a las variables de entorno
+console.log(process.env.DB_USER);  // Muestra 'alquiler_autosdb_owner'
 // Definir el puerto con un valor predeterminado
 const PORT = process.env.PORT || 6000;
 

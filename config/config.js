@@ -1,23 +1,44 @@
 module.exports = {
     development: {
-        username: 'root',
-        password: 'samuel22',
-        database: 'Autos',
-        host: '127.0.0.1',
-        dialect: 'mysql', // O el motor que estés usando: 'postgres', 'sqlite', etc.
+        username: process.env.DB_USER || 'alquiler_autosdb_owner',
+        password: process.env.DB_PASSWORD || 'TQA2XSZ3FCfm',
+        database: process.env.DB_NAME || 'alquiler_autosdb',
+        host: process.env.DB_HOST || 'ep-spring-fire-a5qaowz7.us-east-2.aws.neon.tech',
+        dialect: 'postgres',
+        port: process.env.DB_PORT || 5432,  // Puerto estándar de PostgreSQL
+        dialectOptions: {
+            ssl: {
+                require: true,  // Requiere SSL
+                rejectUnauthorized: false,  // Para evitar problemas con certificados
+            },
+        },
     },
     test: {
-        username: 'usuario',
-        password: 'contraseña',
-        database: 'nombre_base_datos_test',
-        host: '127.0.0.1',
-        dialect: 'mysql',
+        username: process.env.DB_USER || 'alquiler_autosdb_owner',
+        password: process.env.DB_PASSWORD || 'TQA2XSZ3FCfm',
+        database: process.env.DB_NAME || 'alquiler_autosdb',
+        host: process.env.DB_HOST || 'ep-spring-fire-a5qaowz7.us-east-2.aws.neon.tech',
+        dialect: 'postgres',
+        port: process.env.DB_PORT || 5432,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false,
+            },
+        },
     },
     production: {
-        username: 'usuario',
-        password: 'contraseña',
-        database: 'nombre_base_datos_production',
-        host: '127.0.0.1',
-        dialect: 'mysql',
-    },
+        username: process.env.DB_USER || 'alquiler_autosdb_owner',
+        password: process.env.DB_PASSWORD || 'TQA2XSZ3FCfm',
+        database: process.env.DB_NAME || 'alquiler_autosdb',
+        host: process.env.DB_HOST || 'ep-spring-fire-a5qaowz7.us-east-2.aws.neon.tech',
+        dialect: 'postgres',
+        port: process.env.DB_PORT || 5432,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false,
+            },
+        },
+    }
 };
