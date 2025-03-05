@@ -1,16 +1,15 @@
 const bcrypt = require('bcrypt');
 const { Cliente } = require('../models');
 
- //login
  exports.loginCliente = async (req, res) => {
-  const { correo, contraseña } = req.body; // Obtener correo y contraseña
+  const { correo, password } = req.body; // Obtener correo y contraseña
   try {
-      const usuario = await cliente.findOne({ where: { correo } }); // Buscar por correo
+      const usuario = await Cliente.findOne({ where: { correo } }); // Buscar por correo
       if (!usuario) {
           return res.status(404).json({ mensaje: 'Correo no encontrado' });
       }
 
-      const esValida = await bcrypt.compare(contraseña, usuario.contraseña); // Comparar contraseña
+      const esValida = await bcrypt.compare(password, usuario.password); // Comparar contraseña
       if (!esValida) {
           return res.status(401).json({ mensaje: 'Contraseña incorrecta' });
       }

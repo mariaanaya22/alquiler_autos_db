@@ -7,7 +7,7 @@ module.exports = {
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // Permite conexiones SSL sin verificación estricta de certificado
+        rejectUnauthorized: false, 
       },
     },
   },
