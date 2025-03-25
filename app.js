@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); 
 const app = express();
 require('dotenv').config();
 
@@ -6,14 +7,13 @@ const alquilerR = require('./routes/alquilerroutes');
 const autosR = require('./routes/autosroutes');
 const clientesR = require('./routes/clienteroutes');
 
-
-// Ahora puedes acceder a las variables de entorno
-
-// Definir el puerto con un valor predeterminado
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 7000;
 
 // Middleware para analizar JSON
 app.use(express.json());
+
+app.use(cors());
+
 console.log(process.env.DATABASE_URL); 
 
 // Prefijos para cada conjunto de rutas
